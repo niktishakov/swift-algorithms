@@ -1,0 +1,27 @@
+name: Fork test
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [fork-test-android-api-levels]
+  workflow_dispatch:
+
+# Fork test only: swiftlang/github-workflows#226 after #347. Emulator tests on three
+# Android API levels with package_test.yml from main.
+jobs:
+  tests:
+    name: Test
+    uses: swiftlang/github-workflows/.github/workflows/package_test.yml@main
+    with:
+      enable_linux: false
+      enable_macos: false
+      enable_macos_swiftly: false
+      enable_windows: false
+      enable_linux_static_sdk_build: false
+      enable_wasm_sdk_build: false
+      enable_embedded_wasm_sdk_build: false
+      enable_android_sdk_build: true
+      android_sdk_build_triples: '[]'
+      android_emulator_test_triples: '["x86_64-unknown-linux-android24", "x86_64-unknown-linux-android28", "x86_64-unknown-linux-android36"]'
