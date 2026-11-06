@@ -24,4 +24,4 @@ jobs:
       enable_embedded_wasm_sdk_build: false
       enable_android_sdk_build: true
       android_sdk_build_triples: '[]'
-      android_emulator_test_triples: '["x86_64-unknown-linux-android24", "x86_64-unknown-linux-android28", "x86_64-unknown-linux-android36"]'
+      android_emulator_test_triples: '["x86_64-unknown-linux-android26"]'
